@@ -29,7 +29,7 @@ const TeamMember: React.FC<TeamMemberProps> = ({ name, major, linkedin, email })
 
           <div className="member-contact-box">
               <a href={linkedin} target="_blank" rel="noopener noreferrer">
-                Email
+                {email}
               </a>
           </div>
         </div>
