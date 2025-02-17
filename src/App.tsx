@@ -16,20 +16,20 @@ function App() {
   const [isSubmitted, setIsSubmitted] = useState(false);
 
   const boardMembers = [
-    { name: "President", role: "Leadership", major: "Computer Science" },
+    { name: "President", major: "Computer Science", email: "test@umich.edu" },
     {
       name: "Vice President",
-      role: "Operations",
       major: "Business Administration",
+      email: "test@umich.edu",
     },
-    { name: "Secretary", role: "Administration", major: "BBA" },
-    { name: "Treasurer", role: "Finance", major: "BBA" },
-    { name: "Marketing Director", role: "Marketing", major: "BBA" },
-    { name: "Events Coordinator", role: "Events", major: "BBA" },
-    { name: "Community Manager", role: "Community", major: "BBA" },
-    { name: "Technical Lead", role: "Technology", major: "BBA" },
-    { name: "Outreach Coordinator", role: "Outreach", major: "BBA" },
-    { name: "Content Manager", role: "Content", major: "BBA" },
+    { name: "Secretary", major: "BBA", email: "test@umich.edu" },
+    { name: "Treasurer", major: "BBA", email: "test@umich.edu" },
+    { name: "Marketing Director", major: "BBA", email: "test@umich.edu" },
+    { name: "Events Coordinator", major: "BBA", email: "test@umich.edu" },
+    { name: "Community Manager", major: "BBA", email: "test@umich.edu" },
+    { name: "Technical Lead", major: "BBA", email: "test@umich.edu" },
+    { name: "Outreach Coordinator", major: "BBA", email: "test@umich.edu" },
+    { name: "Content Manager", major: "BBA", email: "test@umich.edu" },
   ];
 
   const handleEmailChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -235,6 +235,7 @@ function App() {
               <TeamMember
                 name={member.name}
                 major={member.major}
+                email={member.email}
               />
             </div>
           ))}
