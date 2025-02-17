@@ -1,12 +1,10 @@
 import { useState, FormEvent, useEffect } from 'react'
 import TextInput from './components/TextInput'
-import emailjs from '@emailjs/browser'
 import logo from './assets/images/logo.png'
 import './App.css'
 import TeamMember from './components/TeamMember'
 import ThemeToggle from './components/ThemeToggle'
 import AnimatedCounter from './components/AnimatedCounter'
-import ContactForm from './components/ContactForm'
 import { submitForm } from './utils/formSubmission'
 import ImageCarousel from './components/ImageCarousel'
 import Navbar from './components/Navbar'
@@ -30,8 +28,8 @@ function App() {
   const [isDarkMode, setIsDarkMode] = useState(false);
 
   const boardMembers = [
-    { name: 'President', role: 'Leadership', major: 'BBA' },
-    { name: 'Vice President', role: 'Operations', major: 'CS' },
+    { name: 'President', role: 'Leadership', major: 'Computer Science' },
+    { name: 'Vice President', role: 'Operations', major: 'Business Administration' },
     { name: 'Secretary', role: 'Administration', major: 'BBA' },
     { name: 'Treasurer', role: 'Finance', major: 'BBA' },
     { name: 'Marketing Director', role: 'Marketing', major: 'BBA' },

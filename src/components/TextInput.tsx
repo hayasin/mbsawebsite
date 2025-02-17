@@ -2,36 +2,37 @@ import { ChangeEvent } from 'react';
 import './TextInput.css';
 
 interface TextInputProps {
-  label: string;
+  label?: string;
   id: string;
-  type?: string;
+  type: string;
   value: string;
-  onChange: (e: ChangeEvent<HTMLInputElement>) => void;
+  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   required?: boolean;
   error?: string;
+  placeholder?: string;
 }
 
-const TextInput = ({
+const TextInput: React.FC<TextInputProps> = ({
   label,
   id,
-  type = 'text',
+  type,
   value,
   onChange,
-  required = false,
-  error
-}: TextInputProps) => {
+  required,
+  error,
+  placeholder
+}) => {
   return (
     <div className="text-input-group">
-      <label htmlFor={id} className="text-input-label">
-        {label}
-      </label>
+      {label && <label className="text-input-label" htmlFor={id}>{label}</label>}
       <input
-        type={type}
         id={id}
+        type={type}
         value={value}
         onChange={onChange}
         required={required}
-        className="text-input"
+        placeholder={placeholder}
+        className={`text-input ${error ? 'error' : ''}`}
       />
       {error && <div className="error-message">{error}</div>}
     </div>
