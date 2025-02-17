@@ -1,4 +1,4 @@
-import { useState, FormEvent, useEffect } from 'react'
+import { useState, FormEvent } from 'react'
 import TextInput from './components/TextInput'
 import logo from './assets/images/logo.png'
 import './App.css'
@@ -8,22 +8,13 @@ import { submitForm } from './utils/formSubmission'
 import ImageCarousel from './components/ImageCarousel'
 import Navbar from './components/Navbar'
 import Ross from './assets/images/ross.jpg'
-
-import instapic1 from './assets/images/instapics/instapic1.jpeg'
-import instapic2 from './assets/images/instapics/instapic2.jpg'
-import instapic3 from './assets/images/instapics/instapic3.jpg'
-import instapic4 from './assets/images/instapics/instapic4.jpeg'
-import instapic5 from './assets/images/instapics/instapic5.jpeg'
-import instapic6 from './assets/images/instapics/instapic6.jpeg'
-
-
+import InstagramFeed from './components/InstagramFeed'
 
 
 function App() {
   const [email, setEmail] = useState('');
   const [emailError, setEmailError] = useState('');
   const [isSubmitted, setIsSubmitted] = useState(false);
-  const [isDarkMode, setIsDarkMode] = useState(false);
 
   const boardMembers = [
     { name: 'President', role: 'Leadership', major: 'Computer Science' },
@@ -66,69 +57,9 @@ function App() {
     }
   };
 
-  const toggleTheme = () => {
-    setIsDarkMode(!isDarkMode);
-  };
-
-  useEffect(() => {
-    const handleParallax = () => {
-      const scrolled = window.pageYOffset;
-      const parallaxElements = document.getElementsByClassName('parallax-image');
-      
-      Array.from(parallaxElements).forEach((element: any) => {
-        const offset = scrolled * 0.5; // Controls the speed of parallax
-        element.style.transform = `translateY(${offset}px)`;
-      });
-    };
-
-    window.addEventListener('scroll', handleParallax);
-    return () => window.removeEventListener('scroll', handleParallax);
-  }, []);
-
-  const InstagramFeed = () => {
-    const [currentIndex, setCurrentIndex] = useState(0);
-    const images = [
-      instapic1,
-      instapic2,
-      instapic3,
-      instapic4,
-      instapic5,
-      instapic6,
-      
-    ];
-
-    useEffect(() => {
-      const timer = setInterval(() => {
-        setCurrentIndex((prevIndex) => 
-          prevIndex === images.length - 1 ? 0 : prevIndex + 1
-        );
-      }, 5000); // Increased to 5 seconds for more comfortable viewing
-
-      return () => clearInterval(timer);
-    }, [images.length]);
-
-    return (
-      <div className="phone-mockup">
-        <div className="phone-frame">
-          <div className="phone-screen">
-            <div className="instagram-feed">
-              {images.map((src, index) => (
-                <img
-                  key={index}
-                  src={src}
-                  alt={`Instagram Post ${index + 1}`}
-                  className={`feed-image ${index === currentIndex ? 'active' : ''}`}
-                />
-              ))}
-            </div>
-          </div>
-        </div>
-      </div>
-    );
-  };
 
   return (
-    <div className={`landing-page ${isDarkMode ? 'dark' : 'light'}`}>
+    <div className="landing-page">
       <Navbar />
 
       <section id="hero" className="hero-section">
@@ -157,6 +88,7 @@ function App() {
 
                 <button type="submit" className="submit-btn">Continue</button>
               </form>
+
             ) : (
               <div className="form success-form">
                 <div className="success-icon">✓</div>
@@ -312,8 +244,8 @@ function App() {
               </div>
             </div>
           </div>
-          <div className="phone-mockup">
-            <InstagramFeed />
+          <div>
+            <InstagramFeed></InstagramFeed>
           </div>
         </div>
       </section>
