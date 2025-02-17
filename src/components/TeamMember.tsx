@@ -12,10 +12,7 @@ interface TeamMemberProps {
 const TeamMember: React.FC<TeamMemberProps> = ({
   name,
   role,
-  major,
-  year,
-  linkedin,
-  email
+  major
 }) => {
   return (
     <div className="team-member">

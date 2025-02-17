@@ -3,7 +3,6 @@ import TextInput from './components/TextInput'
 import logo from './assets/images/logo.png'
 import './App.css'
 import TeamMember from './components/TeamMember'
-import ThemeToggle from './components/ThemeToggle'
 import AnimatedCounter from './components/AnimatedCounter'
 import { submitForm } from './utils/formSubmission'
 import ImageCarousel from './components/ImageCarousel'
@@ -24,7 +23,6 @@ function App() {
   const [email, setEmail] = useState('');
   const [emailError, setEmailError] = useState('');
   const [isSubmitted, setIsSubmitted] = useState(false);
-  const [isSending, setIsSending] = useState(false);
   const [isDarkMode, setIsDarkMode] = useState(false);
 
   const boardMembers = [
@@ -131,7 +129,6 @@ function App() {
 
   return (
     <div className={`landing-page ${isDarkMode ? 'dark' : 'light'}`}>
-      <ThemeToggle isDarkMode={isDarkMode} toggleTheme={toggleTheme} />
       <Navbar />
 
       <section id="hero" className="hero-section">
